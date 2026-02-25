@@ -12,7 +12,8 @@ import jakarta.persistence.Persistence;
 import java.util.Collection;
 
 public class MovimentacaoDAO implements IMovimentacaoDAO {
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("controle-financeiro");
+    private static final EntityManagerFactory emf = JPAUtil.getEntityManagerFactory();
+
 
     @Override
     public Boolean cadastrar(Movimentacao m) {

@@ -7,12 +7,11 @@ package br.com.falves.dao;
 import br.com.falves.domain.Meta;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 import java.util.Collection;
 
 public class MetaDAO implements IMetaDAO{
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("controle-financeiro");
+    private static final EntityManagerFactory emf = JPAUtil.getEntityManagerFactory();
 
     @Override
     public Boolean cadastrar(Meta m) {

@@ -4,12 +4,20 @@
 
     <persistence-unit name="controle-financeiro">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>br.com.falves.domain.Movimentacao</class> <properties>
-        <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
-        <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://dpg-d6fo21jh46gs73cl60t0-a.virginia-postgres.render.com/controle_financeiro_5vwk" />        <property name="jakarta.persistence.jdbc.user" value="admin" />
-        <property name="jakarta.persistence.jdbc.password" value="TLZth3Nw2eILg47cPJ81Ov1KsXEjHlke" />
+        <class>br.com.falves.domain.Movimentacao</class>
+        <class>br.com.falves.domain.Meta</class>
 
-        <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-        <property name="hibernate.show_sql" value="true" /> <property name="hibernate.hbm2ddl.auto" value="update" /> </properties>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
+
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres" />
+            <property name="jakarta.persistence.jdbc.user" value="postgres" />
+            <property name="jakarta.persistence.jdbc.password" value="postgres" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+        </properties>
     </persistence-unit>
 </persistence>
