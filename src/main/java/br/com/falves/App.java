@@ -10,7 +10,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import java.net.URI;
 
 public class App {
-    public static final String BASE_URI = "http://localhost:8080/api/";
+    public static final String BASE_URI = "http://0.0.0.0:8080/";
     public static void main(String[] args) {
         final ResourceConfig rc = new ResourceConfig().packages("br.com.falves.controller");
 
