@@ -16,15 +16,16 @@ public class MetaService {
         this.dao = new MetaDAO();
     }
 
-    public void cadastrarMeta(Meta meta) {
+    public void cadastrarMeta(Meta m) {
         try {
-            Boolean estaCadastrada = dao.cadastrar(meta);
-
-            if (!estaCadastrada){
-                throw new IllegalArgumentException("Meta com ID: " + meta.getId() + " já está cadastrada.");
+            Boolean sucesso = dao.cadastrar(m);
+            if (!sucesso) {
+                // Se o DAO retornou false, é porque caiu no catch do DAO
+                throw new RuntimeException("Erro interno ao persistir no banco. Verifique os logs do servidor.");
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println("Erro no Service: " + e.getMessage());
+            throw e;
         }
     }
 

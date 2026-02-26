@@ -19,13 +19,13 @@ public class MovimentacaoService {
 
     public void cadastrarMovimentacao(Movimentacao m) {
         try {
-            Boolean estaCadastrada = dao.cadastrar(m);
-
-            if (!estaCadastrada){
-                throw new IllegalArgumentException("Movimentação com ID: " + m.getId() + " já está cadastrada.");
+            Boolean sucesso = dao.cadastrar(m);
+            if (!sucesso) {
+                throw new RuntimeException("Erro interno ao persistir no banco. Verifique os logs do servidor.");
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println("Erro no Service: " + e.getMessage());
+            throw e;
         }
     }
 
